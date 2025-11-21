@@ -2,6 +2,8 @@ html,
 body {
   margin: 0;
   font-family: "Karla", sans-serif;
+  background-color: #3a3a3a;
+  color: white;
 }
 
 /*typography*/
@@ -45,7 +47,7 @@ header {
   padding: 10px 0 0 0;
 }
 
-.pumpkin-img {
+.minu-img {
   width: 80px;
 }
 
@@ -91,7 +93,7 @@ label {
 }
 
 .highlight {
-  background-color: #fff0ee;
+  background-color: #382121;
   color: #bd301d;
   font-weight: bold;
   accent-color: #bd301d;
@@ -121,6 +123,7 @@ input[type="radio"] {
   border: none;
   border-radius: 5px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 /* modal */
@@ -138,7 +141,7 @@ input[type="radio"] {
   border-radius: 5px;
   width: 420px;
   height: 490px;
-  background-color: #fff0ee;
+  background-color: #282828;
 }
 
 .cat-img {
@@ -157,6 +160,23 @@ input[type="radio"] {
   border-radius: 50%;
   padding: 2px 6px;
   font-size: 14px;
+}
+
+.meme-modal-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.meme-modal-arrow {
+  background-color: #67595e;
+  color: #eed6d3;
+  padding: 10px 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .meme-modal-close-btn:hover {
