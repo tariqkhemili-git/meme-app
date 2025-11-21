@@ -1,3 +1,9 @@
+/* Cross-browser box-sizing for layout consistency */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 /* Responsive base font size */
 html {
   font-size: 16px;
@@ -46,7 +52,9 @@ header {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  width: 370px;
+  width: 100%;
+  max-width: 370px;
+  /* Use gap with fallback for Safari */
   gap: 15px;
   padding: 10px 0 0 0;
 }
@@ -58,7 +66,8 @@ header {
 .controls-container {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   margin: 0px auto;
 }
 
@@ -143,14 +152,17 @@ input[type="radio"] {
   justify-content: center;
   border: 1px solid #67595e;
   border-radius: 5px;
-  width: 420px;
-  height: 490px;
+  width: 100%;
+  max-width: 420px;
+  min-height: 320px;
+  height: auto;
   background-color: #282828;
 }
 
 .cat-img {
+  width: 100%;
   max-width: 340px;
-  max-height: 420px;
+  height: auto;
   border-radius: 5px;
 }
 
@@ -171,16 +183,68 @@ input[type="radio"] {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  /* Fallback for gap in Safari */
+}
+@supports not (gap: 10px) {
+  .meme-modal-arrow-container > * {
+    margin-right: 10px;
+  }
+  .meme-modal-arrow-container > *:last-child {
+    margin-right: 0;
+  }
 }
 
 .meme-modal-arrow {
   background-color: #67595e;
   color: #eed6d3;
-  padding: 10px 14px;
-  font-size: 18px;
+  padding: 16px 24px;
+  font-size: 22px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  min-width: 48px;
+  min-height: 48px;
+  /* Responsive layout for mobile */
+  @media (max-width: 600px) {
+    .header-inner,
+    .controls-container,
+    .meme-modal-arrow-container {
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+      align-items: stretch;
+    }
+    .meme-modal {
+      max-width: 95vw;
+      min-height: 220px;
+      height: auto;
+      top: 20px;
+      padding: 8px;
+    }
+    .cat-img {
+      max-width: 95vw;
+      height: auto;
+    }
+    .controls-container {
+      max-width: 98vw;
+      padding: 0 4vw;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+    h3 {
+      font-size: 1rem;
+      margin: 16px;
+    }
+    .get-image-btn {
+      font-size: 1.2rem;
+      padding: 12px 10px;
+      min-width: 80px;
+    }
+  }
 }
 
 .meme-modal-close-btn:hover {
