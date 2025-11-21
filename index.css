@@ -1,3 +1,7 @@
+/* Responsive base font size */
+html {
+  font-size: 16px;
+}
 html,
 body {
   margin: 0;
